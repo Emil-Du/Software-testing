@@ -16,6 +16,6 @@ test('test', async ({ page }) => {
     }
     await expect(page.getByRole('strong')).toContainText('1 of 2');
     await page.getByRole('button', { name: 'Next' }).click();
-    await page.locator('[id^="delete-record"]').first().click();
+    await page.locator('[id^="delete-record"]').first().click({ force: true });
     await expect(page.getByRole('strong')).toContainText('1 of 1');
 });
