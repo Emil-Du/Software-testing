@@ -2,6 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
     await page.goto('https://demoqa.com/');
+    await page.evaluate(() => {
+        document.body.style.zoom = '0.8';
+    });
     await page.getByRole('link', { name: 'Elements' }).click();
     await page.getByRole('link', { name: 'Web Tables' }).click();
     for (let i = 0; i < 8; i++) {
